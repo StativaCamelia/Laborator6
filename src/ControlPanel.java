@@ -30,6 +30,12 @@ public class ControlPanel extends JPanel {
         exitBtn.addActionListener(this::exit);
 
     }
+
+    /**
+     * Extrage din MainFrame-ul din care face parte(care este de altfel unul din atributele clasei), canvasul curent(reprezentat de un obiect de tip BufferedImage)
+     * si il scrie intr-un file cu extensia .png.
+     * @param e
+     */
     private void save(ActionEvent e){
         try{
             ImageIO.write(frame.canvas.image, "PNG", new File("d:/text.png"));
@@ -39,6 +45,11 @@ public class ControlPanel extends JPanel {
         }
     }
 
+    /**
+     * Citeste o imagine din FIle System si inlocuieste imaginea care reprezinta canvas-ul actula cu acesta. Apoi pentru a putea adauga in continuare elemente,
+     * transforma si aceasta imagine intr-un "drawing context". Apelam repain pentru a propaga modificarile facute.
+     * @param e
+     */
     private void load(ActionEvent e){
         BufferedImage img = null;
         try {
@@ -52,12 +63,20 @@ public class ControlPanel extends JPanel {
         }
     }
 
+    /**
+     * Apeleaza functia createOffscreenImage, care readuce canvas-ul in stadiul in care era la deschiderea aplicatie.
+     * @param e
+     */
     private void reset(ActionEvent e){
         frame.canvas.createOffscreenImage();
         frame.canvas.validate();
         frame.canvas.repaint();
     }
 
+    /**
+     * Ascunde vizibilitatea MainFrame-ului si apoi distruge acest obiect.
+     * @param e
+     */
     private void exit(ActionEvent e){
     frame.setVisible(false);
     frame.dispose();

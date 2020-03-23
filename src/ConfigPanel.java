@@ -13,6 +13,12 @@ public class ConfigPanel extends JPanel {
         init();
     }
 
+    /**
+     * Zona de configurari va contine doua forme de introducere al input-ului de catre utilizator.
+     * Un JSpinner - pentru selectarea numarului de laturi.
+     * Un ComboBox(dropdown) - pentru selectarea culorii
+     * Exista si un label pentru identificarea continutului JSpinner-ului
+     */
     private void init(){
         label = new JLabel("Number of sides");
         sidesField = new JSpinner(new SpinnerNumberModel(0,0,100,1));
