@@ -44,6 +44,7 @@ public class ControlPanel extends JPanel {
         try {
             img = ImageIO.read(new File("d:/text.png"));
             this.frame.canvas.image = img;
+            this.frame.canvas.graphics = this.frame.canvas.image.createGraphics();
             frame.canvas.validate();
             frame.canvas.repaint();
         } catch (IOException ie) {

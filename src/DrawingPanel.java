@@ -44,7 +44,7 @@ public class DrawingPanel extends JPanel {
     private void drawShape(int x, int y){
         double radius = Math.random()*100;
         int sides = (int)frame.configPanel.sidesField.getValue();
-        Color color = frame.configPanel.colorCombo.getSelectedItem();
+        Color color = new Color(255, 0, 0);
         graphics.setColor(color);
         graphics.fill(new RegularPolygon(x,y,radius, sides));
 
