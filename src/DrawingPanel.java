@@ -59,13 +59,26 @@ public class DrawingPanel extends JPanel {
      * @param y
      */
     private void drawShape(int x, int y){
-        double radius = Math.random()*100;
+        int radius = (int) this.frame.configPanel.radiusField.getValue();
         int sides = (int)frame.configPanel.sidesField.getValue();
         Color color = new Color((int)Math.floor(Math.random()*255), (int)Math.floor(Math.random()*255), (int)Math.floor(Math.random()*255));
-
         graphics.setColor(color);
-        graphics.fill(new RegularPolygon(x,y,radius, sides));
 
+        String shapeType = (String)this.frame.shapeSelect.shapeCombo.getSelectedItem();
+
+        if(shapeType.equals("Regular Polygon")) {
+            graphics.fill(new RegularPolygon(x, y, radius, sides));
+
+        }
+        else if(shapeType.equals("Circle")){
+            graphics.fillOval(x,y,radius,radius);
+        }
+        else if(shapeType.equals("Oval")){
+            graphics.fillOval(x,y,sides, radius);
+        }
+        else if(shapeType.equals("Random")){
+            graphics.fill(new Random(x,y, radius));
+        }
     }
 
     @Override

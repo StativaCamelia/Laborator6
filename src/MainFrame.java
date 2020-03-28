@@ -9,6 +9,7 @@ public class MainFrame extends JFrame {
     ConfigPanel configPanel;
     ControlPanel controlPanel;
     DrawingPanel canvas;
+    ShapeSelect shapeSelect;
 
     public MainFrame(){
         super("My Drawing Application");
@@ -21,10 +22,11 @@ public class MainFrame extends JFrame {
         canvas = new DrawingPanel(this);
         configPanel = new ConfigPanel(this);
         controlPanel = new ControlPanel(this);
-
+        shapeSelect = new ShapeSelect(this);
         add(canvas, BorderLayout.CENTER);
         add(configPanel, BorderLayout.NORTH);
         add(controlPanel, BorderLayout.SOUTH);
+        add(shapeSelect, BorderLayout.EAST);
 
         pack();
     }

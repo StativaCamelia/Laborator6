@@ -8,6 +8,7 @@ import java.io.IOException;
 
 public class ControlPanel extends JPanel {
     final MainFrame frame;
+    JFileChooser fc = new JFileChooser();
     JButton saveBtn = new JButton("Save");
     JButton loadBtn = new JButton("Load");
     JButton resetBtn = new JButton("Reset");
@@ -15,6 +16,7 @@ public class ControlPanel extends JPanel {
 
     public ControlPanel(MainFrame frame){
         this.frame = frame;
+        fc.setCurrentDirectory(new File(System.getProperty("user.home")));
         init();
     }
 
@@ -38,7 +40,11 @@ public class ControlPanel extends JPanel {
      */
     private void save(ActionEvent e){
         try{
-            ImageIO.write(frame.canvas.image, "PNG", new File("d:/text.png"));
+            int result = fc.showOpenDialog(getParent());
+            if (result == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fc.getSelectedFile();
+                ImageIO.write(frame.canvas.image, "PNG", selectedFile);
+            }
         }
         catch (IOException ex){
             System.err.println(ex);
@@ -53,7 +59,12 @@ public class ControlPanel extends JPanel {
     private void load(ActionEvent e){
         BufferedImage img = null;
         try {
-            img = ImageIO.read(new File("d:/text.png"));
+            int result = fc.showOpenDialog(getParent());
+            if (result == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fc.getSelectedFile();
+                img = ImageIO.read(selectedFile);
+            }
+
             this.frame.canvas.image = img;
             this.frame.canvas.graphics = this.frame.canvas.image.createGraphics();
             frame.canvas.validate();
