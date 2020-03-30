@@ -1,9 +1,12 @@
+package drawing;
+
+import drawing.ConfigPanel;
+import drawing.ControlPanel;
+import drawing.DrawingPanel;
+
 import javax.swing.*;
 
 import java.awt.*;
-
-import static javax.swing.SpringLayout.NORTH;
-import static javax.swing.SwingConstants.CENTER;
 
 public class MainFrame extends JFrame {
     ConfigPanel configPanel;

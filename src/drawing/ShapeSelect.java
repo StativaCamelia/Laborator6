@@ -1,3 +1,7 @@
+package drawing;
+
+import drawing.MainFrame;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 

@@ -1,3 +1,5 @@
+package Shapes;
+
 import javafx.scene.shape.Shape3D;
 
 import java.awt.*;
@@ -7,7 +9,7 @@ public class Random extends Polygon{
      int y;
      int side;
 
-     Random(int x, int y, int side){
+     public Random(int x, int y, int side){
      this.x = x;
      this.y = y;
      this.side = side;

@@ -1,3 +1,5 @@
+package drawing;
+
 import javax.swing.*;
 import java.lang.reflect.Array;
 

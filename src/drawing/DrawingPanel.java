@@ -1,4 +1,9 @@
-import sun.applet.Main;
+package drawing;
+
+import Shapes.Circle;
+import Shapes.Oval;
+import Shapes.Random;
+import Shapes.RegularPolygon;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,7 +40,7 @@ public class DrawingPanel extends JPanel {
 
     /**
      * am adaugat un listener pentru evenimentele de tipul mouseClick in interiorul acestuia. Actiunea realizata in urma evenimentului este data drept o lambda si 
-     * invoca metodele drawShape (care primeste ca parametri coordonatele locului in care a avut loc evenimentul de tip mouseClick)si care apartine de clasa DrawingPanel 
+     * invoca metodele drawShape (care primeste ca parametri coordonatele locului in care a avut loc evenimentul de tip mouseClick)si care apartine de clasa drawing.DrawingPanel 
      * si metoda repaint. Apelam metoda repaint pentru a semnaliza componentei ca isi modifice continutul, avand in vedere ca modificarile sunt de continut 
      * si nu de dimensiune, caz in care s-ar fi apelat metoda paint.
      */
@@ -54,7 +59,7 @@ public class DrawingPanel extends JPanel {
     /**
      * Initial stabilim care vor fi parametrii(coloare, dmensiune, numar de laturi si figurii pe care o vom desena),
      * acest lucru se realizeaza fie random fie extrangand inputul din componentele care permit introducere de input din
-     * MainFrame(ex sides =frame.configPanel.sidesField.getValue() ). Apoi sunt randate obiecte de tipul graphics care primesc drept parametrii, valorile obtinute anterior.
+     * drawing.MainFrame(ex sides =frame.configPanel.sidesField.getValue() ). Apoi sunt randate obiecte de tipul graphics care primesc drept parametrii, valorile obtinute anterior.
      * @param x
      * @param y
      */
@@ -68,15 +73,14 @@ public class DrawingPanel extends JPanel {
 
         if(shapeType.equals("Regular Polygon")) {
             graphics.fill(new RegularPolygon(x, y, radius, sides));
-
         }
-        else if(shapeType.equals("Circle")){
-            graphics.fillOval(x,y,radius,radius);
+        else if(shapeType.equals("Shapes.Circle")){
+            graphics.fill(new Circle().createComponent(x,y,radius));
         }
         else if(shapeType.equals("Oval")){
-            graphics.fillOval(x,y,sides, radius);
+            graphics.fill(new Oval().createComponent(x,y,sides, radius));
         }
-        else if(shapeType.equals("Random")){
+        else if(shapeType.equals("Shapes.Random")){
             graphics.fill(new Random(x,y, radius));
         }
     }

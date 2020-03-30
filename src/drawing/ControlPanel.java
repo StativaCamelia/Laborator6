@@ -1,3 +1,5 @@
+package drawing;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -34,7 +36,7 @@ public class ControlPanel extends JPanel {
     }
 
     /**
-     * Extrage din MainFrame-ul din care face parte(care este de altfel unul din atributele clasei), canvasul curent(reprezentat de un obiect de tip BufferedImage)
+     * Extrage din drawing.MainFrame-ul din care face parte(care este de altfel unul din atributele clasei), canvasul curent(reprezentat de un obiect de tip BufferedImage)
      * si il scrie intr-un file cu extensia .png.
      * @param e
      */
@@ -85,7 +87,7 @@ public class ControlPanel extends JPanel {
     }
 
     /**
-     * Ascunde vizibilitatea MainFrame-ului si apoi distruge acest obiect.
+     * Ascunde vizibilitatea drawing.MainFrame-ului si apoi distruge acest obiect.
      * @param e
      */
     private void exit(ActionEvent e){
